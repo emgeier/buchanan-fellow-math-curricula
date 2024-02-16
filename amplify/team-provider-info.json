@@ -1,0 +1,36 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-socialjusticemathapp-dev-230926-authRole",
+      "UnauthRoleArn": "arn:aws:iam::814369094182:role/amplify-socialjusticemathapp-dev-230926-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::814369094182:role/amplify-socialjusticemathapp-dev-230926-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-socialjusticemathapp-dev-230926-deployment",
+      "UnauthRoleName": "amplify-socialjusticemathapp-dev-230926-unauthRole",
+      "StackName": "amplify-socialjusticemathapp-dev-230926",
+      "StackId": "arn:aws:cloudformation:us-east-2:814369094182:stack/amplify-socialjusticemathapp-dev-230926/592d6900-c893-11ee-9cd7-0ab6f55f9cf1",
+      "AmplifyAppId": "d1qpqhaunbzvki"
+    },
+    "categories": {
+      "auth": {
+        "socialjusticemathapp4b8ef370": {}
+      },
+      "api": {
+        "socialjusticemathapp": {}
+      },
+      "function": {
+        "S3Trigger2a69c4a1": {
+          "deploymentBucketName": "amplify-socialjusticemathapp-dev-230926-deployment",
+          "s3Key": "amplify-builds/S3Trigger2a69c4a1-6967362b313433526979-build.zip"
+        }
+      },
+      "storage": {
+        "s3c426a27b": {},
+        "Lessons": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "resourceName": "s3c426a27b",
+  "policyUUID": "c426a27b",
+  "bucketName": "socialjusticeinput",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "S3Trigger2a69c4a1",
+  "groupAccess": {}
+}

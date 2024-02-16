@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "socialjusticemathapp",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authsocialjusticemathapp4b8ef370",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
