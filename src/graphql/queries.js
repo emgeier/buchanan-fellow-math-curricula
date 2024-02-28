@@ -10,9 +10,10 @@ export const getLessonPlan = /* GraphQL */ `
       filePath
       mathTopic
       socialJusticeTopic
-      owner
+      author
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -31,12 +32,65 @@ export const listLessonPlans = /* GraphQL */ `
         filePath
         mathTopic
         socialJusticeTopic
-        owner
+        author
         createdAt
         updatedAt
+        owner
         __typename
       }
       nextToken
+      __typename
+    }
+  }
+`;
+export const searchLessonPlans = /* GraphQL */ `
+  query SearchLessonPlans(
+    $filter: SearchableLessonPlanFilterInput
+    $sort: [SearchableLessonPlanSortInput]
+    $limit: Int
+    $nextToken: String
+    $from: Int
+    $aggregates: [SearchableLessonPlanAggregationInput]
+  ) {
+    searchLessonPlans(
+      filter: $filter
+      sort: $sort
+      limit: $limit
+      nextToken: $nextToken
+      from: $from
+      aggregates: $aggregates
+    ) {
+      items {
+        id
+        title
+        description
+        filePath
+        mathTopic
+        socialJusticeTopic
+        author
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      nextToken
+      total
+      aggregateItems {
+        name
+        result {
+          ... on SearchableAggregateScalarResult {
+            value
+          }
+          ... on SearchableAggregateBucketResult {
+            buckets {
+              key
+              doc_count
+              __typename
+            }
+          }
+        }
+        __typename
+      }
       __typename
     }
   }

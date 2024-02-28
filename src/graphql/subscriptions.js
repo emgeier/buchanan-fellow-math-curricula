@@ -4,17 +4,19 @@
 export const onCreateLessonPlan = /* GraphQL */ `
   subscription OnCreateLessonPlan(
     $filter: ModelSubscriptionLessonPlanFilterInput
+    $owner: String
   ) {
-    onCreateLessonPlan(filter: $filter) {
+    onCreateLessonPlan(filter: $filter, owner: $owner) {
       id
       title
       description
       filePath
       mathTopic
       socialJusticeTopic
-      owner
+      author
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -22,17 +24,19 @@ export const onCreateLessonPlan = /* GraphQL */ `
 export const onUpdateLessonPlan = /* GraphQL */ `
   subscription OnUpdateLessonPlan(
     $filter: ModelSubscriptionLessonPlanFilterInput
+    $owner: String
   ) {
-    onUpdateLessonPlan(filter: $filter) {
+    onUpdateLessonPlan(filter: $filter, owner: $owner) {
       id
       title
       description
       filePath
       mathTopic
       socialJusticeTopic
-      owner
+      author
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -40,17 +44,19 @@ export const onUpdateLessonPlan = /* GraphQL */ `
 export const onDeleteLessonPlan = /* GraphQL */ `
   subscription OnDeleteLessonPlan(
     $filter: ModelSubscriptionLessonPlanFilterInput
+    $owner: String
   ) {
-    onDeleteLessonPlan(filter: $filter) {
+    onDeleteLessonPlan(filter: $filter, owner: $owner) {
       id
       title
       description
       filePath
       mathTopic
       socialJusticeTopic
-      owner
+      author
       createdAt
       updatedAt
+      owner
       __typename
     }
   }

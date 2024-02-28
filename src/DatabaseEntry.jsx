@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react';
 import { generateClient } from 'aws-amplify/api';
 
 import { createLessonPlan } from './graphql/mutations';
-//import { createLesson } from './graphql/mutations';
-//import { listLessonPlans } from './graphql/queries';
+
 
 const client = generateClient();
 
@@ -16,25 +15,11 @@ const DatabaseEntry = (props) => {
   const [formState, setFormState] = useState(initialState);
   const [lessonPlans, setLessonPlans] = useState([]);
 
-//   useEffect(() => {
-//     fetchLessonPlans();
-//   }, []);
 
   function setInput(key, value) {
     setFormState({ ...formState, [key]: value });
   }
 
-//   async function fetchLessonPlans() {
-//     try {
-//       const lessonPlanData = await client.graphql({
-//         query: listLessonPlans
-//       });
-//       const lessonPlans = lessonPlanData.data.listLessonPlans.items;
-//       setLessonPlans(lessonPlans);
-//     } catch (err) {
-//       console.log('error fetching ');
-//     }
-//   }
 
   async function addLessonPlan() {
     try {

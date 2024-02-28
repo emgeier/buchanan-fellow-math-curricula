@@ -11,9 +11,18 @@ import config from './amplifyconfiguration.json';
 import {generateClient} from 'aws-amplify/api';
 import {upLoadData, uploadData} from 'aws-amplify/storage'
 import DatabaseEntry from './DatabaseEntry';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar.jsx';
+import Download from './Download.jsx';
+import Contribute from './components/Contribute.jsx';
+import Overview from './components/Overview.jsx';
+import SearchComponent from '/Users/eringeier/social-justice-math-app/src/components/SearchComponent.jsx';
 
+
+//Configure is used for authenication
 
 Amplify.configure(config)
+//This is a simple id code generator-- production level requires more sophistication, checking for already in use, etc.
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -21,25 +30,26 @@ function getRandomInt(min, max) {
 }
 
 function App() {
-  const [lessons, setLessons] = useState([]);
+ // const [lessons, setLessons] = useState([]);
   const[file, setFile] = useState([]);
   const[id, setId] = useState([]);
-  useEffect(()=>{getLessons();}, []);
+  //The following code was used to verify connection to database
+  //useEffect(()=>{getLessons();}, []);
   const client = generateClient();
-  const getLessons =  async () => {
-    try {
-      const lessonData = await client.graphql({query:listLessonPlans});
-      const lessonList = lessonData.data.listLessonPlans.items;
-      console.log(lessonList);
-      setLessons(lessonList);
-    } catch (res) {
-      console.error("error on fetching", res);
-    }
-  }
+  // const getLessons =  async () => {
+  //   try {
+  //     const lessonData = await client.graphql({query:listLessonPlans});
+  //     const lessonList = lessonData.data.listLessonPlans.items;
+  //     console.log("All the lessons: "+lessonList);
+  //     setLessons(lessonList);
+  //   } catch (res) {
+  //     console.error("error on fetching", res);
+  //   }
+  // }
   const handleFileLoad = (event) => {
     console.log('loaded');
     const selectedFile = event.target.files[0];
-    //generate key for file, put in state as well
+    //generate key for file, put in state 
     const randomNumber = getRandomInt(100, 99999999); // Generate a random number
 
     console.log(randomNumber);
@@ -67,23 +77,34 @@ function App() {
   
   
   return (
+    <Router>
     <Authenticator >
     
         {({signOut, user}) => (
         
         <div className="App">
+          <div className="navbar">
+          <Navbar />
+            </div> 
+          
+          <button className="sign-out-button" onClick={signOut}>Sign Out</button>
             <header className='App-header'>
-              <button onClick={signOut}>Sign Out</button>
-              <h1>AWS React Amplify Demo </h1>
-              <h3>Lesson Plan</h3>
-                <input  type= "file" onChange={handleFileLoad}></input>
-                <button onClick={handleUpload}>Submit Lesson Plan</button>
-                <DatabaseEntry id = {id}/>
-              </header> 
+
+             <div>
+             </div>
+       <Routes>
+          <Route path="/contribute" element={<Contribute />} />
+          <Route path="/index.html" element={<Overview/>} />
+          <Route path="/search" element={<SearchComponent/>} />
+          <Route path="/download" element={<Download/>} />
+        </Routes>
+        </header> 
             </div>
+            
             )} 
       
     </Authenticator>
+    </Router>
   );
 }
 

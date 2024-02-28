@@ -13,9 +13,10 @@ export const createLessonPlan = /* GraphQL */ `
       filePath
       mathTopic
       socialJusticeTopic
-      owner
+      author
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -32,9 +33,10 @@ export const updateLessonPlan = /* GraphQL */ `
       filePath
       mathTopic
       socialJusticeTopic
-      owner
+      author
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -51,9 +53,10 @@ export const deleteLessonPlan = /* GraphQL */ `
       filePath
       mathTopic
       socialJusticeTopic
-      owner
+      author
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
