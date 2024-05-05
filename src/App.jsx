@@ -16,7 +16,7 @@ import Navbar from './components/Navbar.jsx';
 import Download from './Download.jsx';
 import Contribute from './components/Contribute.jsx';
 import Overview from './components/Overview.jsx';
-import SearchComponent from '/Users/eringeier/social-justice-math-app/src/components/SearchComponent.jsx';
+import SearchComponent from './components/SearchComponent.jsx';
 
 
 //Configure is used for authenication
